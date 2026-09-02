@@ -1,0 +1,605 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 85% 50%,
+            #0a304d 0%,
+            #061f36 30%,
+            #03172a 60%,
+            #021321 100%
+        );
+
+    overflow-x: hidden;
+}
+
+
+
+
+.container {
+    min-height: 100vh;
+
+    width: 100%;
+
+    padding: 28px 4.5%;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.logo span {
+    font-size: 27px;
+}
+
+.logo h2 {
+    font-size: 24px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    flex: 1;
+
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1.15fr 0.85fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+
+/* =====================================================
+   Lado esquerdo
+===================================================== */
+
+.hero-text {
+    max-width: 720px;
+}
+
+
+/* =====================================================
+   tag
+===================================================== */
+
+.tag {
+    color: #1caeff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+titulo
+===================================================== */
+
+.hero-text h1 {
+    font-size: clamp(55px, 5.4vw, 76px);
+
+    line-height: 0.98;
+
+    letter-spacing: -3px;
+
+    font-weight: 700;
+
+    margin-bottom: 30px;
+}
+
+.hero-text h1 span {
+    color: #16a9ff;
+}
+
+
+/* =====================================================
+   descricao
+===================================================== */
+
+.hero-text > p {
+    color: #9dbbd2;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+
+    max-width: 650px;
+
+    margin-bottom: 32px;
+}
+
+
+/* =====================================================
+   barra pra pesquisar
+===================================================== */
+
+.search-box {
+    width: 100%;
+
+    height: 63px;
+
+    padding: 6px;
+
+    display: flex;
+
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(155, 202, 230, 0.22);
+
+    border-radius: 16px;
+
+    transition: 0.3s;
+}
+
+.search-box:focus-within {
+    border-color: #16a9ff;
+
+    box-shadow:
+        0 0 20px rgba(22, 169, 255, 0.12);
+}
+
+
+/* Ícone */
+
+.search-icon {
+    width: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 38px;
+
+    color: #a68cff;
+
+    transform: rotate(-20deg);
+}
+
+
+/* Input */
+
+.search-box input {
+    flex: 1;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 16px;
+}
+
+.search-box input::placeholder {
+    color: #7895aa;
+}
+
+
+/* =====================================================
+   Botao
+===================================================== */
+
+.search-box button {
+    height: 51px;
+
+    padding: 0 28px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: #119fe8;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    background: #20b1fa;
+
+    transform: translateY(-2px);
+}
+
+.search-box button:active {
+    transform: scale(0.97);
+}
+
+
+/* =====================================================
+   Sugestoes
+===================================================== */
+
+#sugestoes {
+    position: relative;
+
+    z-index: 20;
+}
+
+.sugestao {
+    padding: 13px 20px;
+
+    background: #0b2941;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.sugestao:hover {
+    background: #12415f;
+}
+
+
+
+
+.location-btn {
+    margin-top: 17px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #0da8f7;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.location-btn:hover {
+    color: #59c9ff;
+}
+
+
+/* =====================================================
+   mensagem
+===================================================== */
+
+.mensagem {
+    margin-top: 16px;
+
+    min-height: 20px;
+
+    color: #ff4b72;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   card do clima
+===================================================== */
+
+.weather-card {
+    width: 100%;
+
+    max-width: 430px;
+
+    min-height: 438px;
+
+    justify-self: end;
+
+    padding: 37px 32px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 75, 106, 0.65),
+            rgba(7, 35, 56, 0.75)
+        );
+
+    border: 1px solid rgba(145, 205, 239, 0.28);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.22);
+}
+
+
+
+.weather-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 45px;
+}
+
+.weather-header > div:first-child > span {
+    display: block;
+
+    color: #8faabd;
+
+    font-size: 13px;
+
+    margin-bottom: 7px;
+}
+
+.weather-header h2 {
+    font-size: 27px;
+
+    margin-bottom: 6px;
+}
+
+.weather-header p {
+    color: #9db8ca;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+ icone do tempo
+===================================================== */
+
+.weather-icon {
+    font-size: 53px;
+
+    line-height: 1;
+
+    filter:
+        drop-shadow(
+            0 5px 10px rgba(255, 190, 0, 0.2)
+        );
+}
+
+
+/* =====================================================
+   temperatura
+===================================================== */
+
+.temperature-area {
+    display: flex;
+
+    align-items: center;
+
+    gap: 19px;
+
+    margin-bottom: 45px;
+}
+
+.temperature {
+    font-size: 64px;
+
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+.weather-description {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.weather-description strong {
+    font-size: 17px;
+}
+
+.weather-description span {
+    color: #9ab4c7;
+
+    font-size: 14px;
+}
+
+.weather-description b {
+    font-weight: normal;
+}
+
+
+/* =====================================================
+ caixa de informacao
+===================================================== */
+
+.weather-info {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+.info-box {
+    min-height: 103px;
+
+    padding: 13px 8px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+.info-icon {
+    font-size: 27px;
+}
+
+.info-box span {
+    color: #9bb3c4;
+
+    font-size: 14px;
+}
+
+.info-box strong {
+    color: white;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   atualizacao
+===================================================== */
+
+.updated {
+    text-align: center;
+
+    color: #6f8ca0;
+
+    font-size: 12px;
+
+    margin-top: 22px;
+}
+
+
+
+
+@media (max-width: 1050px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        padding: 60px 0;
+    }
+
+    .hero-text {
+        max-width: 700px;
+    }
+
+    .weather-card {
+        justify-self: start;
+
+        max-width: 600px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 22px 18px;
+    }
+
+    .logo h2 {
+        font-size: 21px;
+    }
+
+    .hero {
+        padding: 45px 0;
+    }
+
+    .hero-text h1 {
+        font-size: 47px;
+
+        letter-spacing: -2px;
+    }
+
+    .hero-text > p {
+        font-size: 15px;
+    }
+
+    .search-box {
+        height: auto;
+
+        min-height: 63px;
+    }
+
+    .search-box button {
+        padding: 0 18px;
+    }
+
+    .weather-card {
+        padding: 28px 20px;
+
+        border-radius: 24px;
+    }
+
+    .temperature {
+        font-size: 53px;
+    }
+
+    .weather-info {
+        gap: 7px;
+    }
+
+    .info-box {
+        min-height: 95px;
+    }
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clima no Mapa</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Tela principal -->
+    <main class="container">
+
+        <!-- Logo -->
+        <header class="logo">
+            <span>☁️</span>
+            <h2>Clima no maapa</h2>
+        </header>
+
+
+        <!-- Conteúdo da tela -->
+        <section class="hero">
+
+            <!-- Lado esquerdo -->
+            <div class="hero-text">
+
+                <div class="tag">
+                    🌎 clima ao redor do mundo
+                </div>
+
+                <h1>
+                    Descubra o clima
+                    <br>
+                    em <span>qualquer</span>
+                    <br>
+                    <span>lugar.</span>
+                </h1>
+
+                <p>
+                    Pesquise uma cidade e veja temperatura, umidade, vento,
+                    previsão do tempo e outras informações meteorológicas atualizadas.
+                </p>
+
+
+                <!-- Campo de pesquisa -->
+                <div class="search-box">
+
+                    <span class="search-icon">⌕</span>
+
+                    <input
+                        type="text"
+                        id="cidadeInput"
+                        placeholder="Digite uma cidade..."
+                        value="Lages"
+                    >
+
+                    <button id="botaoBuscar">
+                        Buscar
+                    </button>
+
+                </div>
+
+
+                <!-- Sugestoes -->
+                <div id="sugestoes"></div>
+
+
+                <!-- Localizacao -->
+                <button class="location-btn" id="localizacao">
+                    📍 Usar minha localização
+                </button>
+
+
+                <!-- Mensagem -->
+                <div id="mensagem" class="mensagem"></div>
+
+            </div>
+
+
+            <!-- Lado direito -->
+            <div class="weather-card">
+
+                <!-- Cabeçalho -->
+                <div class="weather-header">
+
+                    <div>
+                        <span>Clima atual</span>
+
+                        <h2 id="nomeCidade">
+                            Lages
+                        </h2>
+
+                        <p id="localCidade">
+                            santa catarina, Brasil
+                        </p>
+                    </div>
+
+                    <div
+                        class="weather-icon"
+                        id="iconeClima"
+                    >
+                        ☀️
+                    </div>
+
+                </div>
+
+
+                <!-- Temperatura -->
+                <div class="temperature-area">
+
+                    <div class="temperature">
+                        <span id="temperatura">--</span>°
+                    </div>
+
+                    <div class="weather-description">
+
+                        <strong id="descricaoClima">
+                            Carregando...
+                        </strong>
+
+                        <span>
+                            Sensação:
+                            <b id="sensacao">--</b>°
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Informações -->
+                <div class="weather-info">
+
+                    <!-- Umidade -->
+                    <div class="info-box">
+
+                        <div class="info-icon">
+                            💧
+                        </div>
+
+                        <span>
+                            Umidade
+                        </span>
+
+                        <strong id="umidade">
+                            --%
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Vento -->
+                    <div class="info-box">
+
+                        <div class="info-icon">
+                            🌬️
+                        </div>
+
+                        <span>
+                            Vento
+                        </span>
+
+                        <strong id="vento">
+                            -- km/h
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Chuva -->
+                    <div class="info-box">
+
+                        <div class="info-icon">
+                            🌧️
+                        </div>
+
+                        <span>
+                            Chuva
+                        </span>
+
+                        <strong id="chuva">
+                            -- mm
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Atualização -->
+                <div class="updated">
+                    Atualizado:
+                    <span id="atualizado">--</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
