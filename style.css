@@ -6,13 +6,12 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-    width: 100%;
-    min-height: 100%;
-}
 
 body {
+
+    width: 100%;
+    min-height: 100vh;
+
     font-family: Arial, Helvetica, sans-serif;
 
     color: white;
@@ -30,26 +29,28 @@ body {
 }
 
 
-
+/* =====================================================
+ container
+===================================================== */
 
 .container {
-    min-height: 100vh;
 
     width: 100%;
+    min-height: 100vh;
 
     padding: 28px 4.5%;
 
     display: flex;
-
     flex-direction: column;
 }
 
 
 /* =====================================================
-   LOGO
+   logo pra ficar mais minha cara
 ===================================================== */
 
 .logo {
+
     display: flex;
 
     align-items: center;
@@ -57,24 +58,26 @@ body {
     gap: 12px;
 }
 
+
 .logo span {
     font-size: 27px;
 }
 
+
 .logo h2 {
+
     font-size: 24px;
 
     font-weight: 700;
-
-    letter-spacing: -0.5px;
 }
 
 
 /* =====================================================
-   HERO
+   hero que e a secao da pagina 
 ===================================================== */
 
 .hero {
+
     flex: 1;
 
     width: 100%;
@@ -94,24 +97,26 @@ body {
 
 
 /* =====================================================
-   Lado esquerdo
+   lado esquerdo
 ===================================================== */
 
 .hero-text {
+
     max-width: 720px;
 }
 
 
 /* =====================================================
-   tag
+   tag do bagulho que nao lembro o nome
 ===================================================== */
 
 .tag {
+
     color: #1caeff;
 
     font-size: 14px;
 
-    font-weight: 700;
+    font-weight: bold;
 
     letter-spacing: 2px;
 
@@ -120,20 +125,20 @@ body {
 
 
 /* =====================================================
-titulo
+   titulo pra ficar mais bonitin
 ===================================================== */
 
 .hero-text h1 {
+
     font-size: clamp(55px, 5.4vw, 76px);
 
     line-height: 0.98;
 
     letter-spacing: -3px;
 
-    font-weight: 700;
-
     margin-bottom: 30px;
 }
+
 
 .hero-text h1 span {
     color: #16a9ff;
@@ -141,10 +146,11 @@ titulo
 
 
 /* =====================================================
-   descricao
+   Descricao
 ===================================================== */
 
 .hero-text > p {
+
     color: #9dbbd2;
 
     font-size: 17px;
@@ -158,10 +164,11 @@ titulo
 
 
 /* =====================================================
-   barra pra pesquisar
+   campo de pesquisa
 ===================================================== */
 
 .search-box {
+
     width: 100%;
 
     height: 63px;
@@ -181,7 +188,9 @@ titulo
     transition: 0.3s;
 }
 
+
 .search-box:focus-within {
+
     border-color: #16a9ff;
 
     box-shadow:
@@ -189,16 +198,16 @@ titulo
 }
 
 
-/* Ícone */
+/* Ícone de pesquisa */
 
 .search-icon {
+
     width: 50px;
 
     display: flex;
 
-    align-items: center;
-
     justify-content: center;
+    align-items: center;
 
     font-size: 38px;
 
@@ -211,6 +220,7 @@ titulo
 /* Input */
 
 .search-box input {
+
     flex: 1;
 
     height: 100%;
@@ -226,16 +236,18 @@ titulo
     font-size: 16px;
 }
 
+
 .search-box input::placeholder {
     color: #7895aa;
 }
 
 
 /* =====================================================
-   Botao
+   botao pra buscar
 ===================================================== */
 
 .search-box button {
+
     height: 51px;
 
     padding: 0 28px;
@@ -257,11 +269,14 @@ titulo
     transition: 0.3s;
 }
 
+
 .search-box button:hover {
+
     background: #20b1fa;
 
     transform: translateY(-2px);
 }
+
 
 .search-box button:active {
     transform: scale(0.97);
@@ -269,16 +284,19 @@ titulo
 
 
 /* =====================================================
-   Sugestoes
+   sugestoes 
 ===================================================== */
 
 #sugestoes {
+
     position: relative;
 
-    z-index: 20;
+    z-index: 10;
 }
 
+
 .sugestao {
+
     padding: 13px 20px;
 
     background: #0b2941;
@@ -292,14 +310,18 @@ titulo
     transition: 0.2s;
 }
 
+
 .sugestao:hover {
     background: #12415f;
 }
 
 
-
+/* =====================================================
+   localizacao do bagulho pra ficar legal
+===================================================== */
 
 .location-btn {
+
     margin-top: 17px;
 
     padding: 0;
@@ -315,17 +337,19 @@ titulo
     cursor: pointer;
 }
 
+
 .location-btn:hover {
     color: #59c9ff;
 }
 
 
 /* =====================================================
-   mensagem
+   mensagem de erro fessor ja que ninguem e perfeito
 ===================================================== */
 
-.mensagem {
-    margin-top: 16px;
+#mensagem {
+
+    margin-top: 15px;
 
     min-height: 20px;
 
@@ -336,10 +360,11 @@ titulo
 
 
 /* =====================================================
-   card do clima
+   card do clima 
 ===================================================== */
 
 .weather-card {
+
     width: 100%;
 
     max-width: 430px;
@@ -368,8 +393,12 @@ titulo
 }
 
 
+/* =====================================================
+   cabecalho do card que fica na parte de cima fessor
+===================================================== */
 
 .weather-header {
+
     display: flex;
 
     align-items: flex-start;
@@ -379,7 +408,9 @@ titulo
     margin-bottom: 45px;
 }
 
+
 .weather-header > div:first-child > span {
+
     display: block;
 
     color: #8faabd;
@@ -389,13 +420,17 @@ titulo
     margin-bottom: 7px;
 }
 
+
 .weather-header h2 {
+
     font-size: 27px;
 
     margin-bottom: 6px;
 }
 
+
 .weather-header p {
+
     color: #9db8ca;
 
     font-size: 14px;
@@ -403,10 +438,11 @@ titulo
 
 
 /* =====================================================
- icone do tempo
+   icone do bagulho
 ===================================================== */
 
 .weather-icon {
+
     font-size: 53px;
 
     line-height: 1;
@@ -419,10 +455,11 @@ titulo
 
 
 /* =====================================================
-   temperatura
+   teperatura do negocio
 ===================================================== */
 
 .temperature-area {
+
     display: flex;
 
     align-items: center;
@@ -432,15 +469,19 @@ titulo
     margin-bottom: 45px;
 }
 
+
 .temperature {
+
     font-size: 64px;
 
-    font-weight: 700;
+    font-weight: bold;
 
     line-height: 1;
 }
 
+
 .weather-description {
+
     display: flex;
 
     flex-direction: column;
@@ -448,15 +489,19 @@ titulo
     gap: 8px;
 }
 
+
 .weather-description strong {
     font-size: 17px;
 }
 
+
 .weather-description span {
+
     color: #9ab4c7;
 
     font-size: 14px;
 }
+
 
 .weather-description b {
     font-weight: normal;
@@ -464,10 +509,11 @@ titulo
 
 
 /* =====================================================
- caixa de informacao
+  informacoes pra ficar mior fessor
 ===================================================== */
 
 .weather-info {
+
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -475,7 +521,9 @@ titulo
     gap: 10px;
 }
 
+
 .info-box {
+
     min-height: 103px;
 
     padding: 13px 8px;
@@ -495,28 +543,31 @@ titulo
     gap: 6px;
 }
 
+
 .info-icon {
     font-size: 27px;
 }
 
+
 .info-box span {
+
     color: #9bb3c4;
 
     font-size: 14px;
 }
 
-.info-box strong {
-    color: white;
 
+.info-box strong {
     font-size: 14px;
 }
 
 
 /* =====================================================
-   atualizacao
-===================================================== */
+   atualizacao do bagulho
+==================================================== */
 
 .updated {
+
     text-align: center;
 
     color: #6f8ca0;
@@ -527,11 +578,14 @@ titulo
 }
 
 
-
+/* =====================================================
+   responsividade e oque que deixa bonitin pra todos os tamanho de tela
+===================================================== */
 
 @media (max-width: 1050px) {
 
     .hero {
+
         grid-template-columns: 1fr;
 
         gap: 50px;
@@ -539,11 +593,9 @@ titulo
         padding: 60px 0;
     }
 
-    .hero-text {
-        max-width: 700px;
-    }
 
     .weather-card {
+
         justify-self: start;
 
         max-width: 600px;
@@ -557,23 +609,29 @@ titulo
         padding: 22px 18px;
     }
 
+
     .logo h2 {
         font-size: 21px;
     }
+
 
     .hero {
         padding: 45px 0;
     }
 
+
     .hero-text h1 {
+
         font-size: 47px;
 
         letter-spacing: -2px;
     }
 
+
     .hero-text > p {
         font-size: 15px;
     }
+
 
     .search-box {
         height: auto;
@@ -581,23 +639,39 @@ titulo
         min-height: 63px;
     }
 
-    .search-box button {
-        padding: 0 18px;
+
+    .search-box input {
+        min-width: 100px;
+
+        height: 50px;
     }
 
+
+    .search-box button {
+
+        padding: 0 18px;
+
+        height: 50px;
+    }
+
+
     .weather-card {
+
         padding: 28px 20px;
 
         border-radius: 24px;
     }
 
+
     .temperature {
         font-size: 53px;
     }
 
+
     .weather-info {
         gap: 7px;
     }
+
 
     .info-box {
         min-height: 95px;
