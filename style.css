@@ -44,6 +44,22 @@ body {
     flex-direction: column;
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+
+}
+
+@media (max-width: 768px) {
+       .container {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+
+       }
+      }
 
 /* =====================================================
    logo pra ficar mais minha cara
@@ -248,7 +264,7 @@ body {
 
 .search-box button {
 
-    height: 51px;
+    height: 44px;
 
     padding: 0 28px;
 
@@ -609,71 +625,212 @@ body {
         padding: 22px 18px;
     }
 
+    .logo {
+        justify-content: center;
+    }
 
     .logo h2 {
         font-size: 21px;
     }
 
+    .logo span {
+        font-size: 24px;
+    }
 
     .hero {
-        padding: 45px 0;
+        padding: 40px 0;
+        gap: 35px;
     }
 
+    .hero-text {
+        width: 100%;
+    }
 
     .hero-text h1 {
-
-        font-size: 47px;
-
+        font-size: 42px;
         letter-spacing: -2px;
+        line-height: 1;
     }
-
 
     .hero-text > p {
         font-size: 15px;
+        line-height: 1.6;
     }
 
+    /* 🔎 Pesquisa no celular */
 
     .search-box {
+        width: 100%;
         height: auto;
-
         min-height: 63px;
+        padding: 6px;
+        flex-wrap: wrap;
+        gap: 6px;
     }
 
+    .search-icon {
+        width: 40px;
+        font-size: 30px;
+    }
 
     .search-box input {
-        min-width: 100px;
-
+        min-width: 0;
+        flex: 1;
         height: 50px;
+        font-size: 15px;
     }
-
 
     .search-box button {
-
-        padding: 0 18px;
-
         height: 50px;
+        padding: 0 18px;
+        border-radius: 12px;
+        font-size: 14px;
     }
 
+    /* 📍 Botão de localização */
+
+    .location-btn {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* 🌦️ Card do clima */
 
     .weather-card {
-
-        padding: 28px 20px;
-
-        border-radius: 24px;
+        width: 100%;
+        max-width: 100%;
+        padding: 25px 18px;
+        border-radius: 22px;
     }
 
+    .weather-header {
+        margin-bottom: 35px;
+    }
+
+    .weather-header h2 {
+        font-size: 23px;
+    }
+
+    .weather-icon {
+        font-size: 43px;
+    }
+
+    /* 🌡️ Temperatura */
+
+    .temperature-area {
+        gap: 12px;
+        margin-bottom: 35px;
+    }
 
     .temperature {
-        font-size: 53px;
+        font-size: 48px;
     }
 
+    .weather-description strong {
+        font-size: 15px;
+    }
+
+    .weather-description span {
+        font-size: 13px;
+    }
+
+    /* 📊 Informações */
 
     .weather-info {
-        gap: 7px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
     }
 
-
     .info-box {
-        min-height: 95px;
+        min-height: 90px;
+        padding: 10px 4px;
+        border-radius: 12px;
+    }
+
+    .info-icon {
+        font-size: 23px;
+    }
+
+    .info-box span {
+        font-size: 12px;
+    }
+
+    .info-box strong {
+        font-size: 12px;
+    }
+
+    .updated {
+        font-size: 11px;
+        margin-top: 18px;
+    }
+}
+
+/* celular*/
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .hero img {
+        max-width: 90%;
+        margin-top: 30px;
+    }
+}
+
+/* celulares pequenos */
+@media (max-width: 480px) {
+
+    .container {
+        width: 92%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .search-box {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px;
+    }
+
+    .search-icon {
+        display: none;
+    }
+
+    .search-box input {
+        width: 100%;
+        height: 48px;
+    }
+
+    .search-box button {
+        width: 100%;
+        height: 48px;
     }
 }
