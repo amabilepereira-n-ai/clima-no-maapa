@@ -870,4 +870,21 @@ async function pesquisarCidadeInicial() {
     }
 }
 
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", () => {
+
+        navigator.serviceWorker
+            .register("./sw.js")
+            .then(() => {
+                console.log("Service Worker registrado com sucesso!");
+            })
+            .catch(erro => {
+                console.error("Erro ao registrar Service Worker:", erro);
+            });
+
+    });
+
+}
+
 // confesso fessor que teve coisas que pedi pro chat meu ajudar a fazer pro site ficar mais bonitin
