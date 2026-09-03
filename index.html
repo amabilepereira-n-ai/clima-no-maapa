@@ -7,31 +7,44 @@
 
     <title>Clima no Mapa</title>
 
+    <!-- Arquivo de estilos -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Tela principal -->
+    <!-- ==================================================
+        negocio principal (nao lembro o nome)
+    ================================================== -->
+
     <main class="container">
 
-        <!-- Logo -->
+        <!-- Logo do site -->
         <header class="logo">
             <span>☁️</span>
-            <h2>Clima no maapa</h2>
+            <h2>lima no maapa</h2>
         </header>
 
 
-        <!-- Conteúdo da tela -->
+        <!-- ==================================================
+            tela principal
+        ================================================== -->
+
         <section class="hero">
 
-            <!-- Lado esquerdo -->
+            <!-- ==================================================
+                 lado esquerdo
+            ================================================== -->
+
             <div class="hero-text">
 
+                <!-- Pequeno título -->
                 <div class="tag">
                     🌎 clima ao redor do mundo
                 </div>
 
+
+                <!-- Título principal -->
                 <h1>
                     Descubra o clima
                     <br>
@@ -40,64 +53,98 @@
                     <span>lugar.</span>
                 </h1>
 
+
+                <!-- Descrição -->
                 <p>
                     Pesquise uma cidade e veja temperatura, umidade, vento,
                     previsão do tempo e outras informações meteorológicas atualizadas.
                 </p>
 
 
-                <!-- Campo de pesquisa -->
+                <!-- ==================================================
+                     ÁREA DE PESQUISA
+                ================================================== -->
+
                 <div class="search-box">
 
-                    <span class="search-icon">⌕</span>
+                    <span class="search-icon">
+                        ⌕
+                    </span>
 
                     <input
                         type="text"
-                        id="cidadeInput"
+                        id="cidade"
                         placeholder="Digite uma cidade..."
-                        value="Lages"
+                        autocomplete="off"
                     >
 
-                    <button id="botaoBuscar">
+                    <button id="buscar">
                         Buscar
                     </button>
 
                 </div>
 
 
-                <!-- Sugestoes -->
+                <!-- Sugestões automáticas -->
                 <div id="sugestoes"></div>
 
 
-                <!-- Localizacao -->
-                <button class="location-btn" id="localizacao">
+                <!-- ==================================================
+                     MELHORIA 2:
+                     USAR LOCALIZAÇÃO
+                ================================================== -->
+
+                <button
+                    class="location-btn"
+                    id="localizacao"
+                >
                     📍 Usar minha localização
                 </button>
 
 
-                <!-- Mensagem -->
-                <div id="mensagem" class="mensagem"></div>
+                <!-- ==================================================
+                     RESULTADO / MENSAGENS
+                     O JavaScript atualiza esta área
+                ================================================== -->
+
+                <section id="resultado">
+
+                    <!-- Mensagem de erro ou carregamento -->
+                    <div id="mensagem"></div>
+
+                </section>
 
             </div>
 
 
-            <!-- Lado direito -->
+            <!-- ==================================================
+                 CARD DO CLIMA
+            ================================================== -->
+
             <div class="weather-card">
 
-                <!-- Cabeçalho -->
+                <!-- Cabeçalho do card -->
+
                 <div class="weather-header">
 
                     <div>
-                        <span>Clima atual</span>
+
+                        <span>
+                            Clima atual
+                        </span>
 
                         <h2 id="nomeCidade">
-                            Lages
+                            --
                         </h2>
 
                         <p id="localCidade">
-                            santa catarina, Brasil
+                            --
                         </p>
+
                     </div>
+
+
+                    <!-- Ícone do clima -->
 
                     <div
                         class="weather-icon"
@@ -109,17 +156,25 @@
                 </div>
 
 
-                <!-- Temperatura -->
+                <!-- ==================================================
+                     TEMPERATURA
+                ================================================== -->
+
                 <div class="temperature-area">
 
                     <div class="temperature">
-                        <span id="temperatura">--</span>°
+
+                        <span id="temperatura">
+                            --
+                        </span>°
+
                     </div>
+
 
                     <div class="weather-description">
 
                         <strong id="descricaoClima">
-                            Carregando...
+                            Pesquise uma cidade
                         </strong>
 
                         <span>
@@ -132,10 +187,14 @@
                 </div>
 
 
-                <!-- Informações -->
+                <!-- ==================================================
+                     INFORMAÇÕES EXTRAS
+                ================================================== -->
+
                 <div class="weather-info">
 
                     <!-- Umidade -->
+
                     <div class="info-box">
 
                         <div class="info-icon">
@@ -154,6 +213,7 @@
 
 
                     <!-- Vento -->
+
                     <div class="info-box">
 
                         <div class="info-icon">
@@ -172,6 +232,7 @@
 
 
                     <!-- Chuva -->
+
                     <div class="info-box">
 
                         <div class="info-icon">
@@ -191,10 +252,15 @@
                 </div>
 
 
-                <!-- Atualização -->
+                <!-- Horário da atualização -->
+
                 <div class="updated">
+
                     Atualizado:
-                    <span id="atualizado">--</span>
+                    <span id="atualizado">
+                        --
+                    </span>
+
                 </div>
 
             </div>
@@ -203,6 +269,8 @@
 
     </main>
 
+
+    <!-- JavaScript -->
 
     <script src="script.js"></script>
 
