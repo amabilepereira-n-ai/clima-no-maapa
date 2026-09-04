@@ -1,4 +1,13 @@
-const CACHE_NAME = "consulta-clima-v1";
+// ========================================
+// configuracao do cache (se nao me engano e armazenamento)
+// ========================================
+
+const CACHE_NAME = "clima-no-mapa-v1";
+
+
+// ========================================
+// arquivos que estaos salvos no bagulho
+// ========================================
 
 const ARQUIVOS = [
     "./",
@@ -10,45 +19,119 @@ const ARQUIVOS = [
     "./icons/icon-512.png"
 ];
 
-self.addEventListener("install", event => {
 
-    event.waitUntil(
+// ========================================
+// instalacao do service worker (quase morri pra fazer esse nao sei explicar pra que serve nao)
+// ========================================
+
+self.addEventListener("install", function (evento) {
+
+    evento.waitUntil(
+
         caches.open(CACHE_NAME)
-            .then(cache => {
+            .then(function (cache) {
+
+                console.log("Salvando arquivos no cache...");
+
                 return cache.addAll(ARQUIVOS);
+
             })
+
     );
 
+    
     self.skipWaiting();
+
 });
 
 
-self.addEventListener("activate", event => {
+// ========================================
+// ativacao do service worker (aqui ce ativa o bagulho)
+// ========================================
 
-    event.waitUntil(
-        caches.keys().then(chaves => {
+self.addEventListener("activate", function (evento) {
 
-            return Promise.all(
-                chaves
-                    .filter(chave => chave !== CACHE_NAME)
-                    .map(chave => caches.delete(chave))
-            );
+    evento.waitUntil(
 
-        })
+        caches.keys()
+            .then(function (cachesExistentes) {
+
+                return Promise.all(
+
+                    cachesExistentes.map(function (cache) {
+
+                        // Apaga caches antigos
+                        if (cache !== CACHE_NAME) {
+
+                            return caches.delete(cache);
+
+                        }
+
+                    })
+
+                );
+
+            })
+
     );
 
+    
     self.clients.claim();
+
 });
 
 
-self.addEventListener("fetch", event => {
+// ========================================
+// requisicoes (nao sei explicar mas consegui pelo menos entender o bagulho um pouco)
+// ========================================
 
-    event.respondWith(
+self.addEventListener("fetch", function (evento) {
 
-        caches.match(event.request)
-            .then(resposta => {
+    
+    if (evento.request.method !== "GET") {
+        return;
+    }
 
-                return resposta || fetch(event.request);
+    evento.respondWith(
+
+        caches.match(evento.request)
+            .then(function (respostaCache) {
+
+               
+                if (respostaCache) {
+                    return respostaCache;
+                }
+
+               
+                return fetch(evento.request)
+
+                    .then(function (resposta) {
+
+                      
+                        const copiaResposta = resposta.clone();
+
+                       
+                        caches.open(CACHE_NAME)
+                            .then(function (cache) {
+
+                                cache.put(
+                                    evento.request,
+                                    copiaResposta
+                                );
+
+                            });
+
+                        return resposta;
+
+                    })
+
+                    .catch(function () {
+
+                        // Se estiver sem internet,
+                        // abre o index.html salvo no cache. (ache mt foda cara)
+                        return caches.match("./index.html");
+
+                    });
 
             })
 
