@@ -1,288 +1,378 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
-    <head>
 
-    <meta charset="UTF-8">
+```
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Consulta do Clima</title>
+<title>Consulta do Clima</title>
 
-    <link rel="stylesheet" href="style.css">
+<!-- css do bagulho -->
+<link rel="stylesheet" href="style.css">
 
-    <link rel="manifest" href="manifest.json">
+<!-- Configuração do PWA (nao sei explicar oque e isso)-->
+<link rel="manifest" href="manifest.json">
 
-    <meta name="theme-color" content="#061f36">
+<!-- Cor do aplicativo, nao tem muito que falar e so a cor do aplicativo mesmo -->
+<meta name="theme-color" content="#061f36">
 
-    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<!-- Ícone do aplicativo (que ta muito bonitin inclusive)-->
+<link
+    rel="icon"
+    type="image/png"
+    sizes="192x192"
+    href="icons/icon-192.png"
+>
 
-</head>
+<!-- Configuração para iPhone (no caso as configuracoes para os ricos)-->
+<link
+    rel="apple-touch-icon"
+    href="icons/icon-192.png"
+>
+
+<meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+>
+```
+
 </head>
 
 <body>
 
+```
+<!-- ==================================================
+     conteiner principal do bagulho
+================================================== -->
+
+<main class="container">
+
+    <!-- Logo do site -->
+
+    <header class="logo">
+
+        <span>☁️</span>
+
+        <h2>Clima no Mapa</h2>
+
+    </header>
+
+
     <!-- ==================================================
-        negocio principal (nao lembro o nome)
+         tela principal (onde vai ficar as coisas principais)
     ================================================== -->
 
-    <main class="container">
-
-        <!-- Logo do site -->
-        <header class="logo">
-            <span>☁️</span>
-            <h2>clima no maapa</h2>
-        </header>
+    <section class="hero">
 
 
         <!-- ==================================================
-            tela principal
+             lado esquero do bagulho
         ================================================== -->
 
-        <section class="hero">
+        <div class="hero-text">
+
+
+            <!-- Pequeno título (que achei chique por esse)-->
+
+            <div class="tag">
+
+                🌎 CLIMA AO REDOR DO MUNDO
+
+            </div>
+
+
+            <!-- Título principal (aqui fica destacado e melhor o bagulho ja que e o principal)-->
+
+            <h1>
+
+                Descubra o clima
+
+                <br>
+
+                em <span>qualquer</span>
+
+                <br>
+
+                <span>lugar.</span>
+
+            </h1>
+
+
+            <!-- Descrição (do aplicativo no caso) -->
+
+            <p>
+
+                Pesquise uma cidade e veja temperatura, umidade,
+                vento, previsão do tempo e outras informações
+                meteorológicas atualizadas.
+
+            </p>
+
 
             <!-- ==================================================
-                 lado esquerdo
+                 campo de pesquisa (aqui e onde tu perquisa onde tu quer ver o clima)
             ================================================== -->
 
-            <div class="hero-text">
+            <div class="search-box">
 
-                <!-- Pequeno título -->
-                <div class="tag">
-                    🌎 clima ao redor do mundo
-                </div>
+                <span class="search-icon">
 
+                    ⌕
 
-                <!-- Título principal -->
-                <h1>
-                    Descubra o clima
-                    <br>
-                    em <span>qualquer</span>
-                    <br>
-                    <span>lugar.</span>
-                </h1>
+                </span>
 
 
-                <!-- Descrição -->
-                <p>
-                    Pesquise uma cidade e veja temperatura, umidade, vento,
-                    previsão do tempo e outras informações meteorológicas atualizadas.
-                </p>
-
-
-                <!-- ==================================================
-                     ÁREA DE PESQUISA
-                ================================================== -->
-
-                <div class="search-box">
-
-                    <span class="search-icon">
-                        ⌕
-                    </span>
-
-                    <input
-                        type="text"
-                        id="cidade"
-                        placeholder="Digite uma cidade..."
-                        autocomplete="off"
-                    >
-
-                    <button id="buscar">
-                        Buscar
-                    </button>
-
-                </div>
-
-
-                <!-- Sugestões automáticas -->
-                <div id="sugestoes"></div>
-
-
-                <!-- ==================================================
-                     MELHORIA 2:
-                     USAR LOCALIZAÇÃO
-                ================================================== -->
-
-                <button
-                    class="location-btn"
-                    id="localizacao"
+                <input
+                    type="text"
+                    id="cidade"
+                    placeholder="Digite uma cidade..."
+                    autocomplete="off"
                 >
-                    📍 Usar minha localização
+
+
+                <button id="buscar">
+
+                    Buscar
+
                 </button>
 
+            </div>
 
-                <!-- ==================================================
-                     RESULTADO / MENSAGENS
-                     O JavaScript atualiza esta área
-                ================================================== -->
 
-                <section id="resultado">
+            <!-- sugestoes automaticas, achei legal esse -->
 
-                    <!-- Mensagem de erro ou carregamento -->
-                    <div id="mensagem"></div>
+            <div id="sugestoes"></div>
 
-                </section>
+
+            <!-- ==================================================
+                 botao de localizacao aqui tu pode usar tua localizacao achei foda
+            ================================================== -->
+
+            <button
+                class="location-btn"
+                id="localizacao"
+            >
+
+                📍 Usar minha localização
+
+            </button>
+
+
+            <!-- ==================================================
+                 mensagens nao sei explicar esse nao
+            ================================================== -->
+
+            <section id="resultado">
+
+                <div id="mensagem"></div>
+
+            </section>
+
+        </div>
+
+
+        <!-- ==================================================
+             card do clima (aqui vai mostrar o card do clima)
+        ================================================== -->
+
+        <div class="weather-card">
+
+
+            <!-- Cabeçalho -->
+
+            <div class="weather-header">
+
+                <div>
+
+                    <span>
+
+                        Clima atual
+
+                    </span>
+
+
+                    <h2 id="nomeCidade">
+
+                        --
+
+                    </h2>
+
+
+                    <p id="localCidade">
+
+                        --
+
+                    </p>
+
+                </div>
+
+
+                <!-- Ícone do clima (pra ficar mais legal)-->
+
+                <div
+                    class="weather-icon"
+                    id="iconeClima"
+                >
+
+                    ☀️
+
+                </div>
 
             </div>
 
 
             <!-- ==================================================
-                 CARD DO CLIMA
+                 temperatura do bagulho
             ================================================== -->
 
-            <div class="weather-card">
+            <div class="temperature-area">
 
-                <!-- Cabeçalho do card -->
+                <div class="temperature">
 
-                <div class="weather-header">
+                    <span id="temperatura">
 
-                    <div>
-
-                        <span>
-                            Clima atual
-                        </span>
-
-                        <h2 id="nomeCidade">
-                            --
-                        </h2>
-
-                        <p id="localCidade">
-                            --
-                        </p>
-
-                    </div>
-
-
-                    <!-- Ícone do clima -->
-
-                    <div
-                        class="weather-icon"
-                        id="iconeClima"
-                    >
-                        ☀️
-                    </div>
-
-                </div>
-
-
-                <!-- ==================================================
-                     TEMPERATURA
-                ================================================== -->
-
-                <div class="temperature-area">
-
-                    <div class="temperature">
-
-                        <span id="temperatura">
-                            --
-                        </span>°
-
-                    </div>
-
-
-                    <div class="weather-description">
-
-                        <strong id="descricaoClima">
-                            Pesquise uma cidade
-                        </strong>
-
-                        <span>
-                            Sensação:
-                            <b id="sensacao">--</b>°
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ==================================================
-                     INFORMAÇÕES EXTRAS
-                ================================================== -->
-
-                <div class="weather-info">
-
-                    <!-- Umidade -->
-
-                    <div class="info-box">
-
-                        <div class="info-icon">
-                            💧
-                        </div>
-
-                        <span>
-                            Umidade
-                        </span>
-
-                        <strong id="umidade">
-                            --%
-                        </strong>
-
-                    </div>
-
-
-                    <!-- Vento -->
-
-                    <div class="info-box">
-
-                        <div class="info-icon">
-                            🌬️
-                        </div>
-
-                        <span>
-                            Vento
-                        </span>
-
-                        <strong id="vento">
-                            -- km/h
-                        </strong>
-
-                    </div>
-
-
-                    <!-- Chuva -->
-
-                    <div class="info-box">
-
-                        <div class="info-icon">
-                            🌧️
-                        </div>
-
-                        <span>
-                            Chuva
-                        </span>
-
-                        <strong id="chuva">
-                            -- mm
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Horário da atualização -->
-
-                <div class="updated">
-
-                    Atualizado:
-                    <span id="atualizado">
                         --
+
+                    </span>°
+
+                </div>
+
+
+                <div class="weather-description">
+
+                    <strong id="descricaoClima">
+
+                        Pesquise uma cidade
+
+                    </strong>
+
+
+                    <span>
+
+                        Sensação:
+
+                        <b id="sensacao">--</b>°
+
                     </span>
 
                 </div>
 
             </div>
 
-        </section>
 
-    </main>
+            <!-- ==================================================
+                 informacoes extras (achei chique esse)
+            ================================================== -->
+
+            <div class="weather-info">
 
 
-    <!-- JavaScript -->
+                <!-- Umidade -->
 
-    <script src="script.js"></script>
+                <div class="info-box">
+
+                    <div class="info-icon">
+
+                        💧
+
+                    </div>
+
+                    <span>
+
+                        Umidade
+
+                    </span>
+
+                    <strong id="umidade">
+
+                        --%
+
+                    </strong>
+
+                </div>
+
+
+                <!-- Vento -->
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+
+                        🌬️
+
+                    </div>
+
+                    <span>
+
+                        Vento
+
+                    </span>
+
+                    <strong id="vento">
+
+                        -- km/h
+
+                    </strong>
+
+                </div>
+
+
+                <!-- Chuva -->
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+
+                        🌧️
+
+                    </div>
+
+                    <span>
+
+                        Chuva
+
+                    </span>
+
+                    <strong id="chuva">
+
+                        -- mm
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Horário da atualização -->
+
+            <div class="updated">
+
+                Atualizado:
+
+                <span id="atualizado">
+
+                    --
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- JavaScript -->
+
+<script src="script.js"></script>
+```
 
 </body>
 
